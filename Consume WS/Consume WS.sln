@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumingWS-GUI", "ConsumingWS-GUI\ConsumingWS-GUI.csproj", "{7E832ED4-9503-40A9-A72D-3D35E8279B6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.csproj", "{20DC28D6-7535-42D6-9DED-2A8175A1461B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7E832ED4-9503-40A9-A72D-3D35E8279B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E832ED4-9503-40A9-A72D-3D35E8279B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E832ED4-9503-40A9-A72D-3D35E8279B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20DC28D6-7535-42D6-9DED-2A8175A1461B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DC28D6-7535-42D6-9DED-2A8175A1461B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DC28D6-7535-42D6-9DED-2A8175A1461B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DC28D6-7535-42D6-9DED-2A8175A1461B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

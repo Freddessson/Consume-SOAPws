@@ -129,8 +129,8 @@ namespace ConsumingWS_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataLayer.ServiceReference123.WebServiceSoapClient client = new DataLayer.ServiceReference123.WebServiceSoapClient();
-            labelDataResult.Text = client.HelloWorld();
+            //DataLayer.ServiceReference123.WebServiceSoapClient client = new DataLayer.ServiceReference123.WebServiceSoapClient();
+            labelDataResult.Text = Dal.GetHello();
         }
     }
 }

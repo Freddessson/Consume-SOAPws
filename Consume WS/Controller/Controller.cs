@@ -30,11 +30,11 @@ namespace Controller
             return Dal.GetCustomers();
         }
 
-        public static string GetHello()
+        /*public static string GetHello()
         {
 
             string hello = Dal.GetHello();
             return hello;
-        }
+        }*/
     }
 }

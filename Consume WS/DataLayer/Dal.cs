@@ -24,13 +24,13 @@ namespace DataLayer
             return hello; 
             
         }
-        public static string GetHello()
+        /*public static string GetHello()
         {
             ServiceReference123.WebServiceSoapClient client2 = new ServiceReference123.WebServiceSoapClient();
             string hello = client2.HelloWorld();
             return hello;
 
-        }
+        }*/
 
         public static List<WebReff.Customer> GetCustomers() { 
             
@@ -39,8 +39,6 @@ namespace DataLayer
             customerList = client.FindAllCustomers().ToList<WebReff.Customer>();
 
             return customerList;
-
-
         }
 
         /*public static List<> GetCustomers()
