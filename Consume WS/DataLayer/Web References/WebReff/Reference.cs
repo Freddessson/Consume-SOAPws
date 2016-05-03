@@ -35,6 +35,8 @@ namespace DataLayer.WebReff {
         
         private System.Threading.SendOrPostCallback FindAllCustomersOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetCronusEmployeesOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -81,6 +83,9 @@ namespace DataLayer.WebReff {
         
         /// <remarks/>
         public event FindAllCustomersCompletedEventHandler FindAllCustomersCompleted;
+        
+        /// <remarks/>
+        public event GetCronusEmployeesCompletedEventHandler GetCronusEmployeesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp10/HelloWorld", RequestNamespace="http://grupp10/", ResponseNamespace="http://grupp10/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -162,6 +167,35 @@ namespace DataLayer.WebReff {
             if ((this.FindAllCustomersCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FindAllCustomersCompleted(this, new FindAllCustomersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp10/GetCronusEmployees", RequestNamespace="http://grupp10/", ResponseNamespace="http://grupp10/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
+        public string[][] GetCronusEmployees() {
+            object[] results = this.Invoke("GetCronusEmployees", new object[0]);
+            return ((string[][])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetCronusEmployeesAsync() {
+            this.GetCronusEmployeesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetCronusEmployeesAsync(object userState) {
+            if ((this.GetCronusEmployeesOperationCompleted == null)) {
+                this.GetCronusEmployeesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCronusEmployeesOperationCompleted);
+            }
+            this.InvokeAsync("GetCronusEmployees", new object[0], this.GetCronusEmployeesOperationCompleted, userState);
+        }
+        
+        private void OnGetCronusEmployeesOperationCompleted(object arg) {
+            if ((this.GetCronusEmployeesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetCronusEmployeesCompleted(this, new GetCronusEmployeesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -327,6 +361,32 @@ namespace DataLayer.WebReff {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Customer[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void GetCronusEmployeesCompletedEventHandler(object sender, GetCronusEmployeesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetCronusEmployeesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetCronusEmployeesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string[][] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string[][])(this.results[0]));
             }
         }
     }

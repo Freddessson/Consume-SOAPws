@@ -21,6 +21,7 @@ namespace ConsumingWS_GUI
         public Form1()
         {
             InitializeComponent();
+           
         }
 
         private void buttonOpenFile_Click(object sender, EventArgs e)
@@ -34,8 +35,11 @@ namespace ConsumingWS_GUI
                 textBoxFile_Name.Text = ofd.SafeFileName;
                 textBoxFull_File_Name.Text = ofd.FileName;
                 string fileName = textBoxFile_Name.Text;
-                Controller.Controller Controller = new Controller.Controller();
-                labelDataResult.Text = Controller.GetContent(ofd.SafeFileName);
+                Controller.Controller controller = new Controller.Controller();
+                Console.WriteLine(ofd.SafeFileName);
+                labelDataResult.Text = controller.GetContent(ofd.SafeFileName);
+
+                labelDataResult.Text = Controller.Controller.GetHello();
             }
         }
 
@@ -65,6 +69,68 @@ namespace ConsumingWS_GUI
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonGetAllCobraCusotmers_Click(object sender, EventArgs e)
+        {
+            Controller.Controller Controller = new Controller.Controller();
+            
+            DataTable dt = new DataTable();
+            dataGridView1.DataSource = dt;
+            dataGridView1.ClearSelection();
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Pnr");
+            dt.Columns.Add("Email");
+            dt.Columns.Add("Phone");
+            dt.Columns.Add("Address");
+
+
+            foreach (DataLayer.WebReff.Customer c in Controller.GetCustomers())
+            {
+                DataRow row = dt.NewRow();
+                row["Name"] = c.name;
+                row["Pnr"] = c.pnr;
+                row["Email"] = c.email;
+                row["Phone"] = c.phone;
+                row["Address"] = c.address;
+                dt.Rows.Add(row);
+            }
+        
+    }
+
+        private void btnGetCronusEmployees_Click(object sender, EventArgs e)
+        {
+
+            CronusController controller = new CronusController();
+
+            DataTable dt = new DataTable();
+            dataGridView2.DataSource = dt;
+            dataGridView2.ClearSelection();
+
+            // NAMN?
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Pnr");
+            dt.Columns.Add("Email");
+            dt.Columns.Add("Phone");
+            dt.Columns.Add("Address");
+
+            //List<string> cronusList = new List<string>();
+            
+            string[][] cronusList = controller.GetCronusEmployees();
+
+            foreach(string[] row in cronusList)
+            {
+                dt.Rows.Add(row);
+            }
+
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataLayer.ServiceReference123.WebServiceSoapClient client = new DataLayer.ServiceReference123.WebServiceSoapClient();
+            labelDataResult.Text = client.HelloWorld();
         }
     }
 }
