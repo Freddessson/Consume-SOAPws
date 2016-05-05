@@ -70,6 +70,30 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetCronusMetadata">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCronusMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCronusMetadataResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCronus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parameter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCronusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCronusResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -96,6 +120,18 @@
   <wsdl:message name="GetCronusEmployeesSoapOut">
     <wsdl:part name="parameters" element="tns:GetCronusEmployeesResponse" />
   </wsdl:message>
+  <wsdl:message name="GetCronusMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCronusMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetCronusMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCronusMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCronusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCronus" />
+  </wsdl:message>
+  <wsdl:message name="GetCronusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCronusResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -112,6 +148,14 @@
     <wsdl:operation name="GetCronusEmployees">
       <wsdl:input message="tns:GetCronusEmployeesSoapIn" />
       <wsdl:output message="tns:GetCronusEmployeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCronusMetadata">
+      <wsdl:input message="tns:GetCronusMetadataSoapIn" />
+      <wsdl:output message="tns:GetCronusMetadataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCronus">
+      <wsdl:input message="tns:GetCronusSoapIn" />
+      <wsdl:output message="tns:GetCronusSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
@@ -152,6 +196,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCronusMetadata">
+      <soap:operation soapAction="http://grupp10/GetCronusMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCronus">
+      <soap:operation soapAction="http://grupp10/GetCronus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -184,6 +246,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetCronusEmployees">
       <soap12:operation soapAction="http://grupp10/GetCronusEmployees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCronusMetadata">
+      <soap12:operation soapAction="http://grupp10/GetCronusMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCronus">
+      <soap12:operation soapAction="http://grupp10/GetCronus" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

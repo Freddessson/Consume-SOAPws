@@ -13,5 +13,13 @@ namespace Controller
         {
             return CronusDAL.GetCronusEmployees();
         }
-     }
+        public string[][] GetCronusMetadata()
+        {
+            return CronusDAL.GetCronusMetadata();
+        }
+        public string[][] GetCronus(string parameter)
+        {
+            return CronusDAL.GetCronus(parameter);
+        }
+    }
 }

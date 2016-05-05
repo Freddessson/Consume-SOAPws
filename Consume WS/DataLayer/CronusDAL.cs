@@ -12,13 +12,28 @@ namespace DataLayer
         {
 
             WebReff.WebService client = new WebReff.WebService();
-            //List<List<string>> cronusEmployeeList = new List<List<string>>();
             //Här blir vår List<List<string>> en array.
             string[][] cronusEmployeeList  = client.GetCronusEmployees();
 
             return cronusEmployeeList;
-
-
         }
+        public static string[][] GetCronusMetadata()
+        {
+
+            WebReff.WebService client = new WebReff.WebService();
+            //Här blir vår List<List<string>> en array.
+            string[][] cronusMetadataList = client.GetCronusMetadata();
+
+            return cronusMetadataList;
+        }
+        public static string[][] GetCronus(string parameter)
+        {
+            WebReff.WebService client = new WebReff.WebService();
+            //Här blir vår List<List<string>> en array.
+            string[][] cronusList = client.GetCronus(parameter);
+
+            return cronusList;
+        }
+
     }
 }

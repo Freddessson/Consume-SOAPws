@@ -41,9 +41,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonGetAllCobraCustomers = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.labelMessage = new System.Windows.Forms.Label();
+            this.buttonGetSelected = new System.Windows.Forms.Button();
+            this.comboBoxCronus = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnGetCronusEmployees = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -126,7 +127,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.buttonFindFile);
             this.tabPage1.Controls.Add(this.labelDataResult);
             this.tabPage1.Controls.Add(this.buttonOpenFile);
@@ -175,8 +175,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.labelMessage);
+            this.tabPage3.Controls.Add(this.buttonGetSelected);
+            this.tabPage3.Controls.Add(this.comboBoxCronus);
             this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Controls.Add(this.btnGetCronusEmployees);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(730, 450);
@@ -184,39 +186,59 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // labelMessage
+            // 
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.Location = new System.Drawing.Point(153, 52);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(0, 13);
+            this.labelMessage.TabIndex = 5;
+            // 
+            // buttonGetSelected
+            // 
+            this.buttonGetSelected.Location = new System.Drawing.Point(156, 15);
+            this.buttonGetSelected.Name = "buttonGetSelected";
+            this.buttonGetSelected.Size = new System.Drawing.Size(75, 23);
+            this.buttonGetSelected.TabIndex = 4;
+            this.buttonGetSelected.Text = "Get selected";
+            this.buttonGetSelected.UseVisualStyleBackColor = true;
+            this.buttonGetSelected.Click += new System.EventHandler(this.buttonGetSelected_Click);
+            // 
+            // comboBoxCronus
+            // 
+            this.comboBoxCronus.FormattingEnabled = true;
+            this.comboBoxCronus.Items.AddRange(new object[] {
+            "Metadata/Employee",
+            "Relatives",
+            "Sick employees (2004)",
+            "Sick employees (first name)",
+            "All keys",
+            "All indexes",
+            "All table constraints",
+            "All tables",
+            "All tables 2",
+            "All columns (employee)",
+            "All columns (employee) 2"});
+            this.comboBoxCronus.Location = new System.Drawing.Point(5, 15);
+            this.comboBoxCronus.Name = "comboBoxCronus";
+            this.comboBoxCronus.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCronus.TabIndex = 3;
+            this.comboBoxCronus.SelectedIndexChanged += new System.EventHandler(this.comboBoxCronus_SelectedIndexChanged);
+            // 
             // dataGridView2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(134, 127);
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView2.Location = new System.Drawing.Point(22, 131);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(407, 200);
+            this.dataGridView2.Size = new System.Drawing.Size(662, 266);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // btnGetCronusEmployees
-            // 
-            this.btnGetCronusEmployees.Location = new System.Drawing.Point(134, 59);
-            this.btnGetCronusEmployees.Name = "btnGetCronusEmployees";
-            this.btnGetCronusEmployees.Size = new System.Drawing.Size(130, 25);
-            this.btnGetCronusEmployees.TabIndex = 0;
-            this.btnGetCronusEmployees.Text = "Get Cronus Employees";
-            this.btnGetCronusEmployees.UseVisualStyleBackColor = true;
-            this.btnGetCronusEmployees.Click += new System.EventHandler(this.btnGetCronusEmployees_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(71, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 482);
+            this.ClientSize = new System.Drawing.Size(740, 478);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -226,6 +248,7 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -247,8 +270,9 @@
         private System.Windows.Forms.Button buttonGetAllCobraCustomers;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button btnGetCronusEmployees;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxCronus;
+        private System.Windows.Forms.Button buttonGetSelected;
+        private System.Windows.Forms.Label labelMessage;
     }
 }
 
