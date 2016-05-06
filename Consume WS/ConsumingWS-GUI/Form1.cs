@@ -15,14 +15,22 @@ namespace ConsumingWS_GUI
 {
     public partial class Form1 : Form
     {
-        
+
         //private static ControllerSoapClient client = new ControllerSoapClient();
 
         public Form1()
         {
             InitializeComponent();
-           
+
+            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView3.SelectionChanged += new EventHandler((s, e) =>
+            {
+
+            });
+            dataGridView3.MultiSelect = false;
+
         }
+
 
         private void buttonOpenFile_Click(object sender, EventArgs e)
         {
@@ -39,7 +47,7 @@ namespace ConsumingWS_GUI
                 Console.WriteLine(ofd.SafeFileName);
                 labelDataResult.Text = controller.GetContent(ofd.SafeFileName);
 
-                
+
             }
         }
 
@@ -74,7 +82,7 @@ namespace ConsumingWS_GUI
         private void buttonGetAllCobraCusotmers_Click(object sender, EventArgs e)
         {
             Controller.Controller Controller = new Controller.Controller();
-            
+
             DataTable dt = new DataTable();
             dataGridView1.DataSource = dt;
             dataGridView1.ClearSelection();
@@ -95,10 +103,10 @@ namespace ConsumingWS_GUI
                 row["Address"] = c.address;
                 dt.Rows.Add(row);
             }
-        
-    }
 
-        private void btnGetCronusEmployees_Click(object sender, EventArgs e)
+        }
+
+        /*private void btnGetCronusEmployees_Click(object sender, EventArgs e)
         {
 
             CronusController controller = new CronusController();
@@ -115,16 +123,16 @@ namespace ConsumingWS_GUI
             dt.Columns.Add("Address");
 
             //List<string> cronusList = new List<string>();
-            
+
             string[][] cronusList = controller.GetCronusEmployees();
 
-            foreach(string[] row in cronusList)
+            foreach (string[] row in cronusList)
             {
                 dt.Rows.Add(row);
             }
-        }
+        }*/
 
-        private void buttonGetMetadata_Click(object sender, EventArgs e)
+        /*private void buttonGetMetadata_Click(object sender, EventArgs e)
         {
             CronusController controller = new CronusController();
 
@@ -148,7 +156,7 @@ namespace ConsumingWS_GUI
                 dt.Rows.Add(row);
             }
 
-        }
+        }*/
 
         private void comboBoxCronus_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -157,7 +165,7 @@ namespace ConsumingWS_GUI
 
         private void buttonGetSelected_Click(object sender, EventArgs e)
         {
-            
+
             CronusController controller = new CronusController();
             if (String.IsNullOrEmpty(comboBoxCronus.Text))
             {
@@ -168,27 +176,12 @@ namespace ConsumingWS_GUI
                 DataTable dt = new DataTable();
                 dataGridView2.DataSource = dt;
                 string parameter = comboBoxCronus.Text;
-               // string[][] cronusList = controller.GetCronus(parameter);
+                // string[][] cronusList = controller.GetCronus(parameter);
                 string[][] cronusList = null;
 
-
-                /*if (parameter.Equals("Employees"))
-                {
-                    parameter = "employees";
-                    dataGridView2.ClearSelection();
-                    dt.Columns.Add("zazaza");
-                    dt.Columns.Add("zazadza");
-                    dt.Columns.Add("zazasza");
-                    dt.Columns.Add("zazaaza");
-                    dt.Columns.Add("zaazaza");
-                    dt.Columns.Add("zazadzaa");
-                    dt.Columns.Add("zazaszaaa");
-                    dt.Columns.Add("zazaazaaaa");
-                    dt.Columns.Add("zaazazaaaaa");
-                }*/
                 if (parameter.Equals("Metadata/Employee"))
                 {
-                    
+
                     dataGridView2.ClearSelection();
                     dt.Columns.Add("No_");
                     dt.Columns.Add("First Name");
@@ -205,7 +198,7 @@ namespace ConsumingWS_GUI
                 }
                 if (parameter.Equals("Relatives"))
                 {
-                    
+
                     dataGridView2.ClearSelection();
                     dt.Columns.Add("Employee No");
                     dt.Columns.Add("First Name");
@@ -337,6 +330,107 @@ namespace ConsumingWS_GUI
                 }*/
 
             }
+        }
+
+        private void buttonCreateEmployee_Click(object sender, EventArgs e)
+        {
+            CronusController controller = new CronusController();
+            try
+            {
+                string NO_ = textBoxNo_.Text;
+            string FN = textBoxFirstName.Text;
+            string LN = textBoxLastName.Text;
+            string JT = textBoxJobTitle.Text;
+
+            
+
+
+                controller.CreateEmployee(NO_, FN, LN, JT);
+
+                textBoxNo_.Text = "";
+                textBoxFirstName.Text = "";
+                textBoxLastName.Text = "";
+                textBoxJobTitle.Text = "";
+                buttonAllEmployees.PerformClick();
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void buttonAllEmployees_Click(object sender, EventArgs e)
+        {
+            CronusController controller = new CronusController();
+            DataTable dt = new DataTable();
+            dataGridView3.DataSource = dt;
+            string[][] cronusList = controller.GetAllEmployees();
+
+            dataGridView3.ClearSelection();
+            dt.Columns.Add("No_");
+            dt.Columns.Add("First Name");
+            dt.Columns.Add("Last Name");
+            dt.Columns.Add("Job Title");
+            
+            cronusList = controller.GetAllEmployees();
+            foreach (string[] row in cronusList)
+            {
+                dt.Rows.Add(row);
+            }
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            CronusController controller = new CronusController();
+            if (dataGridView3.RowCount > 0)
+            {
+                DataGridViewRow row = dataGridView3.SelectedRows[0];
+
+                string NO_ = row.Cells["No_"].Value.ToString();
+                string FN = row.Cells["First Name"].Value.ToString();
+                string LN = row.Cells["Last Name"].Value.ToString();
+                string JT = row.Cells["Job Title"].Value.ToString();
+
+
+                controller.UpdateEmployee(NO_, FN, LN, JT);
+                dataGridView3.ClearSelection();
+                buttonAllEmployees.PerformClick();
+
+              
+            }
+            else
+            {
+                Console.WriteLine("Kunde inte uppdatera employee");
+            }
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            CronusController controller = new CronusController();
+            if (dataGridView3.RowCount > 0)
+            {
+                DataGridViewRow row = dataGridView3.SelectedRows[0];
+
+                string NO_ = row.Cells["No_"].Value.ToString();
+
+                controller.DeleteEmployee(NO_);
+                dataGridView3.ClearSelection();
+                buttonAllEmployees.PerformClick();
+
+            }
+            else
+            {
+                Console.WriteLine("Kunde inte ta bort employee");
+            }
+
         }
     }
 }

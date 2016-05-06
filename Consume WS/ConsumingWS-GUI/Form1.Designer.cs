@@ -45,12 +45,28 @@
             this.buttonGetSelected = new System.Windows.Forms.Button();
             this.comboBoxCronus = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.buttonAllEmployees = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.labelJobTitle = new System.Windows.Forms.Label();
+            this.textBoxJobTitle = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.labelNo_ = new System.Windows.Forms.Label();
+            this.textBoxNo_ = new System.Windows.Forms.TextBox();
+            this.buttonCreateEmployee = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOpenFile
@@ -119,6 +135,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -139,7 +156,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(730, 450);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Read File";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
@@ -152,7 +169,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(730, 450);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Get Cobra Customers";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -183,7 +200,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(730, 450);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Cronus DB";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // labelMessage
@@ -234,6 +251,142 @@
             this.dataGridView2.Size = new System.Drawing.Size(662, 266);
             this.dataGridView2.TabIndex = 1;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.buttonDelete);
+            this.tabPage4.Controls.Add(this.buttonUpdate);
+            this.tabPage4.Controls.Add(this.buttonAllEmployees);
+            this.tabPage4.Controls.Add(this.dataGridView3);
+            this.tabPage4.Controls.Add(this.labelJobTitle);
+            this.tabPage4.Controls.Add(this.textBoxJobTitle);
+            this.tabPage4.Controls.Add(this.textBoxLastName);
+            this.tabPage4.Controls.Add(this.labelLastName);
+            this.tabPage4.Controls.Add(this.labelFirstName);
+            this.tabPage4.Controls.Add(this.textBoxFirstName);
+            this.tabPage4.Controls.Add(this.labelNo_);
+            this.tabPage4.Controls.Add(this.textBoxNo_);
+            this.tabPage4.Controls.Add(this.buttonCreateEmployee);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(730, 450);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Cronus DB 2";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // buttonAllEmployees
+            // 
+            this.buttonAllEmployees.Location = new System.Drawing.Point(237, 279);
+            this.buttonAllEmployees.Name = "buttonAllEmployees";
+            this.buttonAllEmployees.Size = new System.Drawing.Size(93, 23);
+            this.buttonAllEmployees.TabIndex = 10;
+            this.buttonAllEmployees.Text = "All Employees";
+            this.buttonAllEmployees.UseVisualStyleBackColor = true;
+            this.buttonAllEmployees.Click += new System.EventHandler(this.buttonAllEmployees_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(237, 21);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(484, 251);
+            this.dataGridView3.TabIndex = 9;
+            // 
+            // labelJobTitle
+            // 
+            this.labelJobTitle.AutoSize = true;
+            this.labelJobTitle.Location = new System.Drawing.Point(27, 118);
+            this.labelJobTitle.Name = "labelJobTitle";
+            this.labelJobTitle.Size = new System.Drawing.Size(47, 13);
+            this.labelJobTitle.TabIndex = 8;
+            this.labelJobTitle.Text = "Job Title";
+            // 
+            // textBoxJobTitle
+            // 
+            this.textBoxJobTitle.Location = new System.Drawing.Point(106, 112);
+            this.textBoxJobTitle.Name = "textBoxJobTitle";
+            this.textBoxJobTitle.Size = new System.Drawing.Size(100, 20);
+            this.textBoxJobTitle.TabIndex = 7;
+            // 
+            // textBoxLastName
+            // 
+            this.textBoxLastName.Location = new System.Drawing.Point(106, 85);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLastName.TabIndex = 6;
+            // 
+            // labelLastName
+            // 
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Location = new System.Drawing.Point(27, 91);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(58, 13);
+            this.labelLastName.TabIndex = 5;
+            this.labelLastName.Text = "Last Name";
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.Location = new System.Drawing.Point(27, 64);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(57, 13);
+            this.labelFirstName.TabIndex = 4;
+            this.labelFirstName.Text = "First Name";
+            // 
+            // textBoxFirstName
+            // 
+            this.textBoxFirstName.Location = new System.Drawing.Point(106, 58);
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFirstName.TabIndex = 3;
+            // 
+            // labelNo_
+            // 
+            this.labelNo_.AutoSize = true;
+            this.labelNo_.Location = new System.Drawing.Point(24, 34);
+            this.labelNo_.Name = "labelNo_";
+            this.labelNo_.Size = new System.Drawing.Size(27, 13);
+            this.labelNo_.TabIndex = 2;
+            this.labelNo_.Text = "No_";
+            // 
+            // textBoxNo_
+            // 
+            this.textBoxNo_.Location = new System.Drawing.Point(106, 31);
+            this.textBoxNo_.Name = "textBoxNo_";
+            this.textBoxNo_.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNo_.TabIndex = 1;
+            // 
+            // buttonCreateEmployee
+            // 
+            this.buttonCreateEmployee.Location = new System.Drawing.Point(106, 147);
+            this.buttonCreateEmployee.Name = "buttonCreateEmployee";
+            this.buttonCreateEmployee.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreateEmployee.TabIndex = 0;
+            this.buttonCreateEmployee.Text = "Create Employee";
+            this.buttonCreateEmployee.UseVisualStyleBackColor = true;
+            this.buttonCreateEmployee.Click += new System.EventHandler(this.buttonCreateEmployee_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(345, 279);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(120, 23);
+            this.buttonUpdate.TabIndex = 11;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(471, 279);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(106, 23);
+            this.buttonDelete.TabIndex = 12;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +403,9 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -273,6 +429,20 @@
         private System.Windows.Forms.ComboBox comboBoxCronus;
         private System.Windows.Forms.Button buttonGetSelected;
         private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label labelJobTitle;
+        private System.Windows.Forms.TextBox textBoxJobTitle;
+        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.Label labelLastName;
+        private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.Label labelNo_;
+        private System.Windows.Forms.TextBox textBoxNo_;
+        private System.Windows.Forms.Button buttonCreateEmployee;
+        private System.Windows.Forms.Button buttonAllEmployees;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
 

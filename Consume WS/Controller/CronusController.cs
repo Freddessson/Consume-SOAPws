@@ -21,5 +21,21 @@ namespace Controller
         {
             return CronusDAL.GetCronus(parameter);
         }
+        public void CreateEmployee(string NO_, string FN, string LN, string JT)
+        {
+            CronusDAL.CreateEmployee(NO_, FN, LN, JT);
+        }
+        public string[][] GetAllEmployees()
+        {
+            return CronusDAL.GetAllEmployees();
+        }
+        public void UpdateEmployee(string NO_, string FN, string LN, string JT)
+        {
+            CronusDAL.UpdateEmployee(NO_, FN, LN, JT);
+        }
+        public void DeleteEmployee(string NO_)
+        {
+            CronusDAL.DeleteEmployee(NO_);
+        }
     }
 }

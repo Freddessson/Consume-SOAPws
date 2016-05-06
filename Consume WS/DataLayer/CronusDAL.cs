@@ -34,6 +34,27 @@ namespace DataLayer
 
             return cronusList;
         }
+        public static void CreateEmployee(string NO_, string FN, string LN, string JT)
+        {
+            WebReff.WebService client = new WebReff.WebService();
+            client.CreateEmployee(NO_, FN, LN, JT);
+        }
+
+        public static string[][] GetAllEmployees()
+        {
+            WebReff.WebService client = new WebReff.WebService();
+            return client.GetAllEmployees();
+        }
+        public static void UpdateEmployee(string NO_, string FN, string LN, string JT)
+        {
+            WebReff.WebService client = new WebReff.WebService();
+            client.UpdateEmployee(NO_, FN, LN, JT);
+        }
+        public static void DeleteEmployee(string NO_)
+        {
+            WebReff.WebService client = new WebReff.WebService();
+            client.DeleteEmployee(NO_);
+        }
 
     }
 }
